@@ -296,26 +296,28 @@
 
 /* Team History */
 .history-content {
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 .history-milestones {
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 .milestone {
     display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
+    margin-bottom: 3rem;
     align-items: center;
 }
 
 .year {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--primary-blue);
     font-weight: bold;
     min-width: 100px;
 }
+
+
 
 /* CTA Button */
 .cta-button {
@@ -390,6 +392,7 @@
 
     .year {
         min-width: 80px;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 } 
+
