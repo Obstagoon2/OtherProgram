@@ -92,15 +92,31 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function createSpecsHTML(specs) {
         let html = '';
-        for (let i = 0; i < specs.length; i += 2) {
-            if (specs[i] && specs[i + 1]) {
-                html += `
-                    <div class="spec-item">
-                        <h4>${specs[i]}</h4>
-                        <p>${specs[i + 1]}</p>
-                    </div>
-                `;
+        if (specs.length === 0) {
+            return html;
+        }
+        // If all specs are just paragraphs (no h4s), show as a block
+        if (specs.length === 1) {
+            html += `<div class="spec-item"><p>${specs[0]}</p></div>`;
+        } else if (specs.length % 2 === 0) {
+            // Usual h4/p pairs
+            for (let i = 0; i < specs.length; i += 2) {
+                if (specs[i] && specs[i + 1]) {
+                    html += `
+                        <div class="spec-item">
+                            <h4>${specs[i]}</h4>
+                            <p>${specs[i + 1]}</p>
+                        </div>
+                    `;
+                }
             }
+        } else {
+            // If odd number, treat all as paragraphs
+            html += '<div class="spec-item">';
+            for (let i = 0; i < specs.length; i++) {
+                html += `<p>${specs[i]}</p>`;
+            }
+            html += '</div>';
         }
         return html;
     }
