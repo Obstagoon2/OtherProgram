@@ -245,3 +245,23 @@ function handleFormSubmission(event) {
     event.target.reset();
     refreshCaptcha();
 } 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+        // Close menu when a nav link is clicked (on mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+    }
+}); 

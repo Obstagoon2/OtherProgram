@@ -420,3 +420,39 @@ main {
         font-size: 2rem;
     }
 } 
+
+@media (max-width: 600px) {
+  .robot-modal {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    overflow-y: auto;
+    max-height: 98vh;
+  }
+  .robot-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+  }
+  .robot-modal-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  .robot-modal-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .robot-modal-info {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+} 
