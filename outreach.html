@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Team 1912 Combustion - Community Outreach and Impact">
-    <meta name="theme-color" content="#2498DC">
-    <link rel="shortcut icon" href="assets/frc1912.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Team 1912 Combustion - Community Outreach and Impact" />
+    <meta name="theme-color" content="#2498DC" />
+    <link rel="shortcut icon" href="assets/frc1912.ico" />
     <title>Outreach - Team 1912 Combustion</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/outreach.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/outreach.css" />
+    <link rel="stylesheet" href="css/animations.css" />
     <script src="https://unpkg.com/scrollreveal@4.1.0/dist/scrollreveal.min.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/calendar.js" defer></script>
 </head>
 <body>
     <header>
@@ -77,23 +78,41 @@
                 </div>
             </section>
 
-            <!-- Calendar Section -->
-            <div class="calendar-section">
-                <h2 class="calendar-title">Upcoming Events</h2>
-                <p class="calendar-description">Stay updated with our latest outreach events, competitions, and community activities.</p>
-                <div class="calendar-container">
-                    <iframe src="https://calendar.google.com/calendar/embed?src=6a449goavfd8kttrni97hflte0tqj32f%40import.calendar.google.com&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                </div>
-            </div>
-        </section>
+            <!-- Calendar Event Cards -->
+          <section class="calendar-section">
+    <h2 class="calendar-title" style="text-align: center;">Upcoming Events</h2>
+    <p class="calendar-description" style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
+        Stay updated with our latest outreach events, competitions, and community activities.
+    </p>
+
+    <!-- Sync Calendar Button (MOVE HERE) -->
+    <div class="calendar-sync">
+        <a href="https://calendar.google.com/calendar/r?cid=ninq39q6r61rid4mot3h1ues5u3cmrdr@import.calendar.google.com"
+           class="calendar-sync-button" target="_blank" rel="noopener">
+            Sync Outreach Calendar
+        </a>
+    </div>
+
+   <div id="calendar-events" class="calendar-grid"></div>
+
+<button id="load-more-btn" class="add-calendar-btn" type="button">Load More Events</button>
+<p id="no-more-msg" style="display:none; color: #ccc; margin-top: 0.5rem; font-style: italic;">
+  No more events to show :(.
+</p>
+
+
+</section>
+
+
+
     </main>
 
     <footer>
-        <img src="assets/static/1912.png" alt="Team 1912 Logo" class="footer-logo">
+        <img src="assets/static/1912.png" alt="Team 1912 Logo" class="footer-logo" />
         <p>&copy; 2025 FIRST Robotics Team 1912 - Combustion. All rights reserved.</p>
-<p>Contact us at 
-    <a href="mailto:team1912combustion@gmail.com">team1912combustion@gmail.com</a>
-  </p>
+        <p>Contact us at 
+            <a href="mailto:team1912combustion@gmail.com">team1912combustion@gmail.com</a>
+        </p>
     </footer>
 </body>
-</html> 
+</html>
