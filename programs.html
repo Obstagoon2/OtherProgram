@@ -11,6 +11,106 @@
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <script src="https://unpkg.com/scrollreveal@4.1.0/dist/scrollreveal.min.js" defer></script>
+
+  <style>
+    /* --- Hamburger & Nav CSS Fixes --- */
+    /* Basic navbar flex layout */
+    header .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      background-color: #222;
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+    }
+    .logo-container img.main-logo {
+      height: 40px;
+    }
+
+    /* Nav Links */
+    nav.nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    nav.nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+    }
+    nav.nav-links a.active,
+    nav.nav-links a:hover,
+    nav.nav-links a:focus {
+      background-color: #2498DC;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    /* Hamburger styles */
+    #hamburger-menu {
+      display: none; /* Hide on desktop */
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 11000;
+    }
+    #hamburger-menu:focus {
+      outline: 2px solid #2498DC;
+    }
+    .hamburger-bar {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      nav.nav-links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background-color: #222;
+        flex-direction: column;
+        width: 200px;
+        height: calc(100% - 60px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        padding-top: 1rem;
+        gap: 1.5rem;
+        overflow-y: auto;
+        box-shadow: -2px 0 6px rgba(0,0,0,0.5);
+      }
+
+      nav.nav-links.open {
+        transform: translateX(0);
+      }
+
+      #hamburger-menu {
+        display: flex;
+      }
+    }
+
+    /* Hamburger open animation */
+    #hamburger-menu.open .hamburger-bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    #hamburger-menu.open .hamburger-bar:nth-child(2) {
+      opacity: 0;
+    }
+    #hamburger-menu.open .hamburger-bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,7 +118,7 @@
       <div class="logo-container">
         <img src="assets/static/1912Horizontal.png" alt="Team 1912 Logo" class="main-logo" />
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
         <a href="index.html">HOME</a>
         <a href="about.html">ABOUT</a>
         <a href="outreach.html">OUTREACH</a>
@@ -27,7 +127,7 @@
         <a href="awards.html">AWARDS</a>
         <a href="programs.html" class="active" aria-current="page">PROGRAMS</a>
       </nav>
-      <button id="hamburger-menu" aria-label="Open navigation menu" class="hamburger" type="button">
+      <button id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation" class="hamburger" type="button">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -138,6 +238,29 @@
 
   <script src="js/main.js"></script>
   <script>
+    // Hamburger toggle logic
+    const hamburger = document.getElementById('hamburger-menu');
+    const navLinks = document.querySelector('nav.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    // Optional: close menu when link clicked (on mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', false);
+        }
+      });
+    });
+
+    // ScrollReveal initialization as you had it
     ScrollReveal().reveal(".reveal", {
       duration: 800,
       distance: "50px",
