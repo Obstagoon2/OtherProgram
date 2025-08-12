@@ -1673,23 +1673,59 @@ footer p {
     grid-template-columns: 1fr;
   }
 } 
+/* === Existing Styles Above (omitted for brevity) === */
+
+/*  Awards Dropdown Styles */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.section-image {
+  flex: 1 1 300px;
+}
+.section-content {
+  flex: 2 1 500px;
+}
+
+.awards-dropdown {
+  margin-top: 1rem;
+}
+
 .awards-dropdown summary {
+  font-size: 1.1rem;
   font-weight: bold;
+  color: var(--primary-orange);
   cursor: pointer;
-  padding: 0.4rem 0.6rem;
-  background-color: #2498DC;
-  color: white;
-  border-radius: 6px;
-  display: inline-block;
-  margin-top: 0.5rem;
-  user-select: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
 }
 
-.awards-dropdown[open] summary {
-  background-color: #1b78ac;
+.awards-dropdown summary::-webkit-details-marker {
+  color: var(--primary-blue);
+}
+.awards-dropdown summary::marker {
+  color: var(--primary-blue);
 }
 
-.awards-dropdown ul {
-  margin-top: 0.5rem;
-  padding-left: 1.2rem;
+.awards-dropdown .awards-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  margin-top: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+.awards-dropdown .awards-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.awards-dropdown .awards-card li {
+  margin-bottom: 0.75rem;
+}
+
+/* === End of Additions === */
