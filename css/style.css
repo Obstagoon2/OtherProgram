@@ -1727,5 +1727,46 @@ footer p {
 .awards-dropdown .awards-card li {
   margin-bottom: 0.75rem;
 }
+.awards-dropdown {
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  max-height: 0; /* collapsed */
+}
+
+.awards-dropdown.open {
+  max-height: 1000px; /* large enough to fit all content */
+}
+
+.awards-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border: 2px solid #007BFF; /* blue border */
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.awards-toggle span {
+  color: orange;
+  font-weight: bold;
+}
+
+.awards-toggle svg {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  fill: #007BFF; /* blue triangle */
+}
+
+.awards-toggle.open svg {
+  transform: rotate(180deg);
+}
+
 
 /* === End of Additions === */
