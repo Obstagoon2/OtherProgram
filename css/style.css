@@ -1673,3 +1673,23 @@ footer p {
     grid-template-columns: 1fr;
   }
 } 
+.awards-dropdown summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  background-color: #2498DC;
+  color: white;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 0.5rem;
+  user-select: none;
+}
+
+.awards-dropdown[open] summary {
+  background-color: #1b78ac;
+}
+
+.awards-dropdown ul {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
