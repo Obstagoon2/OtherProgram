@@ -1,0 +1,156 @@
+/* Programs page — layout + awards card overrides */
+/* Uses your CSS variables from style.css */
+
+.programs-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+.program-team {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.program-team__media {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.program-team__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.program-team__content {
+  padding: 0.5rem;
+}
+
+.program-team__title {
+  font-size: 2rem;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+}
+
+.program-team__meta {
+  color: var(--white);
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+  margin-right: 0.5rem;
+  background: rgba(36,152,220,0.06);
+}
+
+.badge--fll {
+  border-color: var(--primary-orange);
+  color: var(--primary-orange);
+  background: rgba(255,131,0,0.06);
+}
+
+/* ===== Awards card (the only “card” per your spec) ===== */
+.awards-card {
+  margin-top: 0.75rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 0.75rem;
+  width: 100%;
+  max-width: 720px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Override any global .awards-dropdown summary styles to match YOUR request:
+   - Text is BLUE
+   - Arrow is ORANGE
+   - Only the awards button lives on a card
+*/
+.awards-card .awards-dropdown {
+  display: block;
+}
+
+.awards-card .awards-dropdown > summary {
+  list-style: none; /* hide default marker */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.6rem;
+  background: transparent;
+  border: 1px solid rgba(36,152,220,0.35);
+  border-radius: 8px;
+  user-select: none;
+  transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.awards-card .awards-dropdown > summary::-webkit-details-marker { display: none; }
+
+.awards-card .awards-label {
+  color: var(--primary-blue);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+}
+
+.awards-card .awards-arrow {
+  margin-left: auto;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-right: 3px solid var(--primary-orange);
+  border-bottom: 3px solid var(--primary-orange);
+  transform: rotate(-45deg);
+  transition: transform var(--transition-speed) ease;
+}
+
+.awards-card .awards-dropdown[open] > summary {
+  background: rgba(36,152,220,0.08);
+  border-color: var(--primary-blue);
+}
+
+.awards-card .awards-dropdown[open] > summary .awards-arrow {
+  transform: rotate(45deg);
+}
+
+/* Awards list */
+.awards-list {
+  margin: 0.6rem 0 0.25rem 0;
+  padding-left: 1.25rem;
+}
+
+.awards-list li {
+  color: var(--white);
+  margin: 0.35rem 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .program-team { grid-template-columns: 1fr; }
+  .program-team__media { height: 220px; }
+}
