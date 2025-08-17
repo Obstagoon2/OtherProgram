@@ -147,18 +147,18 @@ document.querySelectorAll('.awards-toggle').forEach(button => {
         const isOpen = content.classList.contains('open');
 
         if (isOpen) {
-            content.style.maxHeight = content.scrollHeight + "px"; // set current height
+            content.style.maxHeight = content.scrollHeight + "px"; // lock height before collapsing
             requestAnimationFrame(() => {
                 content.style.maxHeight = "0"; // then collapse
             });
             content.classList.remove('open');
-            button.textContent = "Awards ▾";
+            button.textContent = button.textContent.replace("▴", "▾");
         } else {
-            content.style.maxHeight = content.scrollHeight + "px"; // expand to fit content
+            content.style.maxHeight = content.scrollHeight + "px"; // expand
             content.classList.add('open');
-            button.textContent = "Awards ▴";
+            button.textContent = button.textContent.replace("▾", "▴");
 
-            // Optional: remove inline style after transition to allow natural resizing
+            // Reset height after transition so resizing works
             content.addEventListener('transitionend', function removeHeight() {
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = "none";
@@ -168,7 +168,6 @@ document.querySelectorAll('.awards-toggle').forEach(button => {
         }
     });
 });
-
 
 
 // Also try to initialize CAPTCHA when window loads (fallback)
