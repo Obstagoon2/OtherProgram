@@ -1584,7 +1584,7 @@ footer p {
 }
 
 .awards-toggle {
-    background-color: var(--black);
+    background-color:var(--primary-orange);
     color: var(--white);
     border: none;
     padding: 0.6rem 1.2rem;
