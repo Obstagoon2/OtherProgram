@@ -1604,7 +1604,6 @@ footer p {
 /* Collapsible awards panel with smooth animation */
 .awards-content {
     max-height: 0;
-    height: auto;
     overflow: visible;
     transition: max-height 0.4s ease, padding 0.3s ease;
     background-color: var(--black);
