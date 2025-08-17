@@ -138,6 +138,24 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Contact page detected, initializing CAPTCHA...');
         initCaptcha();
     }
+
+    // --- Awards dropdown functionality ---
+    document.querySelectorAll('.awards-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+
+            if (isOpen) {
+                content.style.maxHeight = null;
+                content.classList.remove('open');
+                button.textContent = "Team Awards ▾";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.add('open');
+                button.textContent = "Team Awards ▴";
+            }
+        });
+    });
 });
 
 // Also try to initialize CAPTCHA when window loads (fallback)
@@ -264,4 +282,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-}); 
+});
