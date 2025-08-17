@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOpen = content.classList.contains('open');
 
             if (isOpen) {
-                content.style.maxHeight = null;
+                content.style.maxHeight = 0;
                 content.classList.remove('open');
                 button.textContent = "Awards ▾";
             } else {
