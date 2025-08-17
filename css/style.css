@@ -1584,7 +1584,7 @@ footer p {
 }
 
 .awards-toggle {
-    background-color: var(--primary-blue);
+    background-color: var(--black);
     color: var(--white);
     border: none;
     padding: 0.6rem 1.2rem;
@@ -1604,7 +1604,7 @@ footer p {
 /* Collapsible awards panel with smooth animation */
 .awards-content {
     max-height: 0;
-    overflow: auto;
+    overflow: visible;
     transition: max-height 0.4s ease, padding 0.3s ease;
     background-color: var(--black);
     color: var(--white);
