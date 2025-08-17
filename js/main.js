@@ -148,11 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isOpen) {
                 content.style.maxHeight = null;
                 content.classList.remove('open');
-                button.textContent = "Team Awards ▾";
+                button.textContent = "Awards ▾";
             } else {
                 content.style.maxHeight = content.scrollHeight + "px";
                 content.classList.add('open');
-                button.textContent = "Team Awards ▴";
+                button.textContent = "Awards ▴";
             }
         });
     });
