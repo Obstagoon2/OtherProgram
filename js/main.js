@@ -140,23 +140,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Awards dropdown functionality ---
-    document.querySelectorAll('.awards-toggle').forEach(button => {
-        button.addEventListener('click', () => {
-            const content = button.nextElementSibling;
-            const isOpen = content.classList.contains('open');
+    // --- Awards dropdown functionality ---
+document.querySelectorAll('.awards-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const isOpen = content.classList.contains('open');
 
-            if (isOpen) {
-                content.style.maxHeight = 0;
-                content.classList.remove('open');
-                button.textContent = "Awards ▾";
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                content.classList.add('open');
-                button.textContent = "Awards ▴";
-            }
-        });
+        if (isOpen) {
+            content.style.maxHeight = content.scrollHeight + "px"; // set current height
+            requestAnimationFrame(() => {
+                content.style.maxHeight = "0"; // then collapse
+            });
+            content.classList.remove('open');
+            button.textContent = "Awards ▾";
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px"; // expand to fit content
+            content.classList.add('open');
+            button.textContent = "Awards ▴";
+
+            // Optional: remove inline style after transition to allow natural resizing
+            content.addEventListener('transitionend', function removeHeight() {
+                if (content.classList.contains('open')) {
+                    content.style.maxHeight = "none";
+                }
+                content.removeEventListener('transitionend', removeHeight);
+            });
+        }
     });
 });
+
+
 
 // Also try to initialize CAPTCHA when window loads (fallback)
 window.addEventListener('load', () => {

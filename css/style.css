@@ -1605,16 +1605,18 @@ footer p {
 .awards-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 1rem; /* horizontal padding when collapsed */
     background-color: var(--black);
     color: var(--white);
     border-left: 4px solid #2498DC;
     border-radius: 6px;
-    padding: 0 1rem; /* collapsed = horizontal padding only */
+    transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
+
 .awards-content.open {
-    padding: 0.8rem 1rem;
+    max-height: 1000px; /* big enough to fit content */
+    padding: 0.5rem 1rem; /* add vertical padding when expanded */
 }
 
 
