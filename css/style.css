@@ -1591,7 +1591,7 @@ footer p {
     font-family: 'Nasalization', sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 0px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
